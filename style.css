@@ -1,14 +1,10 @@
 
-/* Ensures page is expected size/proportion */
-html,
 body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
     margin: 0;
 }
 
 .cell-container{
+    /* forces the cell container to consume all the viewport space, since we dont need anything else */
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -16,8 +12,10 @@ body {
 }
 
 .square {
+    /* 6.25% is 1 / 16 (16x16 grid) */
     width: 6.25%;
     height: 6.25%;
+    /* box-sizing fixes the issue where a border is applied to the 'outside' of the div, causing the div to be larger than expected */
     box-sizing: border-box;
     display: inline-block;
     border: 2px solid black;
