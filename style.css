@@ -3,18 +3,25 @@ body {
     margin: 0;
 }
 
+.button-setting{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+}
+
 .cell-container{
     /* forces the cell container to consume all the viewport space, since we dont need anything else */
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     display: flex;
     flex-wrap: wrap;
 }
 
 .square {
-    /* 6.25% is 1 / 16 (16x16 grid) */
+    /* 6.25% is 1 / 16 (16x16 grid)
     width: 6.25%;
-    height: 6.25%;
+    height: 6.25%; */
     /* box-sizing fixes the issue where a border is applied to the 'outside' of the div, causing the div to be larger than expected */
     box-sizing: border-box;
     display: inline-block;
