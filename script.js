@@ -20,8 +20,9 @@ function size(number) {
     for (let i = 0; i < number * number; i++) {
         var square = document.createElement('div');
         square.className = 'square';
-        square.style.width = dimensions + "%";
-        square.style.height = dimensions + "%";
+        square.style.setProperty('width', (dimensions + "%"));
+        console.log(`set width to ${dimensions}`)
+        square.style.setProperty('height', (dimensions + "%"));
         board.appendChild(square);
     }
 }
@@ -34,15 +35,10 @@ function showSettings() {
         showSettings();
     }
 
-    // // Adjust square CSS to be appropriately sized
-    // const square = document.querySelector('.square');
-    // let newDimesion = (1 / input) * 100;
-    // square.setAttribute('width', `${newDimesion}%`);
-    // square.setAttribute('height', `${newDimension}%`);
-
-    // console.log(square.getAttribute('width'));
-
     // Set gridSize so if 'resize' is detected, it remembers the users setting
     gridSize = input;
+
+    // Tripped up here for a while. Had to re-calculate {dimensions} again before calling size(). Understandable, as line 2 never ran again before size() was called in line 50
+    dimensions = (1 / gridSize) * 100;
     size(gridSize);
 }
