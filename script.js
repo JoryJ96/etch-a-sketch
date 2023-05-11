@@ -3,6 +3,8 @@ const squares = document.getElementsByClassName("square");
 let gridSize = 16;
 let dimensions = (1 / gridSize) * 100;
 
+let randomColor
+
 // size determination on initial load
 window.addEventListener('load', function() {
     size(gridSize);
@@ -16,7 +18,7 @@ window.addEventListener('resize', function() {
 
 window.addEventListener('mouseover', function(event) {
     if (event.target.className === "square") {
-        event.target.style["background-color"] = "black";
+        event.target.style["background-color"] = `${getRandomRgbColor()}`;
     }
 })
 
@@ -64,3 +66,25 @@ function showSettings() {
     dimensions = (1 / gridSize) * 100;
     size(gridSize);
 }
+
+function getRandomRgbColor() {
+    let r = Math.floor(Math.random() * 256); // Random between 0-255
+    let g = Math.floor(Math.random() * 256); // Random between 0-255
+    let b = Math.floor(Math.random() * 256); // Random between 0-255
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+// function getRandomHslColor() {
+//     const {hue, saturation, lightness} = {
+//         hue: getRandomNumber(0, 360),
+//         saturation: getRandomNumber(0, 100),
+//         lightness: getRandomNumber(0, 100),
+//     };
+
+//     console.log(hue, saturation, lightness)
+
+//     return `hsl(${hue}, ${saturation}%, ${lightness}%)`
+// }
+
+// function getRandomNumber(min, max) {
+//     Math.round(Math.random() * (max - min) + min);
+// }
