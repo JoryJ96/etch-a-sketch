@@ -1,3 +1,5 @@
+const squares = document.getElementsByClassName("square");
+
 let gridSize = 16;
 let dimensions = (1 / gridSize) * 100;
 
@@ -10,6 +12,26 @@ window.addEventListener('load', function() {
 window.addEventListener('resize', function() {
     size(gridSize);
 })
+
+
+window.addEventListener('mouseover', function(event) {
+    if (event.target.className === "square") {
+        event.target.style["background-color"] = "black";
+    }
+})
+
+// DID NOT WORK
+// Array.from(squares).forEach(function(square) {
+//     square.addEventListener("mouseover", (event) => {
+//         event.target.style["background-color"] = "black";
+//         console.log("Added event listener");
+//     })
+// })
+
+// for (var i = 0; i < squares.length; i++) {
+//     squares[i].addEventListener("mouseover", (event) => {
+//         event.target.style["background-color"] = "black";
+// })};
 
 // Generates elements based on window size. Sizing/layout are handled by CSS
 function size(number) {

@@ -27,3 +27,8 @@ body {
     display: inline-block;
     border: 2px solid black;
 }
+
+/*  Not needed -- added styling in .js function()
+    .hover-color {
+    background-color: black;
+} */
